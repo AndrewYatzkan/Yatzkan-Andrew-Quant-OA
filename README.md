@@ -1,9 +1,23 @@
-# Quant Assessments
+# Reddit Subreddit Scraper
 
-## For applicants
-Please fork this repository and clone the specific branch we have specified for your assessment to start working. The prompt will be contained within. Once you have finished, we will have a way for you to submit your work (most likely google form) where you can send us your git repo. 
+## Usage
 
-## For contributors
-Please make sure to work on a new branch. Each new branch will be for a different assessment and name them accordingly, starting with the tech stack and then the implementation details.
+Run the executable with the following arguments:
 
-Make a new folder (with the same name as the branch) and put all relevant files in the folder. Checkout the template for an outline of what it should look like.
+`-s, --subreddit` - Specify the subreddit to scrape (use the format `r/subreddit_name`)
+`-f, --file` - Specify the file to parse and display the results of
+
+You may specify either the `subreddit` or the `file` argument, but not both.
+
+## Description
+
+Scrapes the specified subreddit for posts made in the past 3 months. The script will then filter for for the top 5 posts made in each week, and download the top 10 comments for each of these posts. Results are written to a JSON file.
+
+To view the results, rerun the script with the `--file` argument and the name of the output file.
+
+## Future Improvements
+
+- Use unofficial API like Pushshift.io that has data cached to fetch relevant info in fewer requests
+- Increase customizability by letting the user pass in more arguments
+- Send multiple requests at once to speed up process
+- Print the data in a cleaner way, potentially involving some sort of data visualization
